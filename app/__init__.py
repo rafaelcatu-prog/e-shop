@@ -1,50 +1,19 @@
 from flask import Flask
-from flask sqlalchemy import SQLAlchemy
-from flask migrate import Migrate
-from app.config import Config
+from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
 
 db = SQLAlchemy()
-Migrate = Migrate()
+migrate = Migrate()
 
 def create_app():
-app = Flask(__name__)
-app.config.from_object(Config)
+    app = Flask(__name__)
+    app.config.from_object('app.config.Config')
 
-db.init_app(app)
-migrate
+    db.init_app(app)
+    migrate.init_app(app, db)
 
+    @app.route('/')
+    def home():
+        return 'Mi primer e-commerce :)'
 
-rafaelcatu@PC:~/web/e-shop$ tree -a -I "venv|.git|env|.env"
-.
-├── app
-│   ├── blueprints
-│   │   ├── admin
-│   │   │   ├── __init__.py
-│   │   │   └── routes.py
-│   │   ├── auth
-│   │   │   ├── __init__.py
-│   │   │   └── routes.py
-│   │   └── public
-│   │       ├── __init__.py
-│   │       └── routes.py
-│   ├── config.py
-│   ├── __init__.py
-│   ├── models
-│   │   ├── __init__.py
-│   │   ├── pedido.py
-│   │   ├── producto.py
-│   │   └── usuario.py
-│   ├── static
-│   │   ├── css
-│   │   └── js
-│   └── templates
-│       ├── admin
-│       ├── auth
-│       ├── base.html
-│       └── public
-├── .gitignore
-├── requirements.txt
-└── run.py
-
-14 directories, 16 files
-rafaelcatu@PC:~/web/e-shop$ 
+    return app
