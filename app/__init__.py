@@ -14,3 +14,37 @@ db.init_app(app)
 migrate
 
 
+rafaelcatu@PC:~/web/e-shop$ tree -a -I "venv|.git|env|.env"
+.
+├── app
+│   ├── blueprints
+│   │   ├── admin
+│   │   │   ├── __init__.py
+│   │   │   └── routes.py
+│   │   ├── auth
+│   │   │   ├── __init__.py
+│   │   │   └── routes.py
+│   │   └── public
+│   │       ├── __init__.py
+│   │       └── routes.py
+│   ├── config.py
+│   ├── __init__.py
+│   ├── models
+│   │   ├── __init__.py
+│   │   ├── pedido.py
+│   │   ├── producto.py
+│   │   └── usuario.py
+│   ├── static
+│   │   ├── css
+│   │   └── js
+│   └── templates
+│       ├── admin
+│       ├── auth
+│       ├── base.html
+│       └── public
+├── .gitignore
+├── requirements.txt
+└── run.py
+
+14 directories, 16 files
+rafaelcatu@PC:~/web/e-shop$ 
