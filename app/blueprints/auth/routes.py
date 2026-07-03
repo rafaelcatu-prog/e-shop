@@ -1,8 +1,6 @@
 from flask import render_template
-from. import authbp
+from app.blueprints.auth import auth_bp
 
-@aut_bp.route('/auth/login')
-return render_template('auth/login.html')
-
-@aut_bp.route('/auth/registro')
-return render_template('auth/registro.html')
+@auth_bp.route('/login')
+def login():
+    return render_template('auth/login.html')
