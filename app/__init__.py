@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 
@@ -12,8 +12,10 @@ def create_app():
     db.init_app(app)
     migrate.init_app(app, db)
 
+    from app import models
+
     @app.route('/')
     def home():
-        return 'Mi primer e-commerce :)'
+        return render_template('public/home.html')
 
     return app
