@@ -12,6 +12,13 @@ def create_app():
 
     db.init_app(app)
     migrate.init_app(app, db)
+#configuracion de login manager
+login_manager.login_view = 'auth.login'
+login_manager.login_message = 'inicia sesion para continuar'
+login_manager.login_message_category = 'warning'
+
+@login_manager.user loader
+def load_user(user_id)
 
     # Modelos
     from app.models import Usuario, Categoria, Producto, Pedido, DetallePedido
