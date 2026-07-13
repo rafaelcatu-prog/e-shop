@@ -1,6 +1,12 @@
 from flask import render_template
-from app.blueprints.public import public_bp
+from . import public_bp
+
 
 @public_bp.route('/')
 def home():
+    return render_template('public/home.html')
+
+
+@public_bp.route('/tienda')
+def tienda():
     return render_template('public/home.html')

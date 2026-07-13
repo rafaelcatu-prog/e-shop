@@ -28,4 +28,3 @@ class Usuario(UserMixin, db.Model):
 
     def __repr__(self):
         return f'<Usuario_ {self.email} | {self.rol} >'
-auth.login
